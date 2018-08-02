@@ -125,7 +125,7 @@ render(
 //只展示数据而不修改数据是体现不出来mobx的强大的 建议吧可观察的数据都封装在action中
 
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { AppContainer } from 'react-hot-loader';
 import { Main } from "./container/Main";
@@ -134,15 +134,15 @@ export class App {
         this.init();
     }
     private init() {
-        ReactDom.render(
+        ReactDOM.render(
             <Provider>
                 <AppContainer>
                     <Main />
                 </AppContainer>
-            </Provider>
-            , document.querySelector('#root'))
+            </Provider>,
+            document.getElementById('root')
+        );
     }
-
 }
 new App();
 
