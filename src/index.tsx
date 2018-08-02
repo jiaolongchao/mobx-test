@@ -124,44 +124,27 @@ render(
 
 //只展示数据而不修改数据是体现不出来mobx的强大的 建议吧可观察的数据都封装在action中
 
-import { observable, action } from 'mobx';
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
-import PropTypes from 'prop-types';
-import {observer,PropTypes as ObservablePropTypes} from 'mobx-react';
-
-
-class Store {
-    @observable cache = { queue: [] }
-    @action.bound refresh(){
-        this.cache.queue.push(1)
+import { Provider } from 'mobx-react';
+import { AppContainer } from 'react-hot-loader';
+import { Main } from "./container/Main";
+export class App {
+    public constructor() {
+        this.init();
     }
+    private init() {
+        ReactDom.render(
+            <Provider>
+                <AppContainer>
+                    <Main />
+                </AppContainer>
+            </Provider>
+            , document.querySelector('#root'))
+    }
+
 }
+new App();
 
-const store = new Store();
 
-@observer
-class Bar extends Component {
-    static propTypes = {
-        queue: ObservablePropTypes.observableArray //使用mobx-react中自定义的类型
-    };
-    render() {
-        const queue = this.props.queue;
-        return <span>
-            {queue.length}
-        </span>
-    }
-}
-
-class Foo extends Component {
-    static propTypes = {
-        cache: ObservablePropTypes.observableObject
-    }
-    render() {
-        const cache = this.props.cache;
-        return <div><button onClick={res=>this.props.refresh()}>refresh</button><Bar queue={cache.queue} /></div>
-    }
-}
-
-ReactDom.render(<Foo cache={store.cache}  refresh = {store.refresh}/>, document.querySelector('#root'))
 
