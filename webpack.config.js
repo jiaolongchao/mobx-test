@@ -8,7 +8,7 @@ module.exports = {
     main: [
       'react-hot-loader/patch',
       './build/dev-client',
-      "./src/index.tsx"
+      "./src/index.jsx"
     ]
   },
   output: {
