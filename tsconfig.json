@@ -1,37 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "declaration": false,
-    "sourceMap": true,
-    "noLib": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "suppressImplicitAnyIndexErrors": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitUseStrict": false,
-    "skipDefaultLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "lib": [
-      "dom",
-      "es5",
-      "es6"]
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "commonjs",
+      "target": "es5",
+      "jsx": "react"
   },
-  "buildOnSave": false,
-  "compileOnSave": true,
-  "exclude": ["node_modules"],
-  "atom": {
-    "rewriteTsconfig": false,
-    "formatOnSave": true
-  },
-  "types": [
-    "typePatches"
+  "include": [
+      "./src/**/*"
   ]
 }

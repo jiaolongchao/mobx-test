@@ -3,12 +3,10 @@ import { Route,Link } from "react-router-dom";
 import { renderRoutes } from 'react-router-config'
 
 
-import { observable, action } from 'mobx';
 import React, { Component } from 'react';
 import { Router, Route, Link } from 'react-router';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
-import { observer, PropTypes as ObservablePropTypes } from 'mobx-react';
 // declare var $
 
 class Store {
@@ -20,7 +18,7 @@ class Store {
 
 const store = new Store();
 
-@observer
+
 class Bar extends Component {
     static propTypes = {
         queue: ObservablePropTypes.observableArray //使用mobx-react中自定义的类型
