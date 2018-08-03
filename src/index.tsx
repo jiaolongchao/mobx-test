@@ -3,26 +3,9 @@ import * as ReactDOM from "react-dom";
 import { Provider } from 'mobx-react';
 import { AppContainer } from 'react-hot-loader';
 import { Main } from "./container/Main";
-/* export class App {
-    public constructor() {
-        this.init();
-    }
-    private init() {
-        ReactDOM.render(
-            <Provider>
-                <AppContainer>
-                    <Main />
-                </AppContainer>
-            </Provider>,
-            document.getElementById('root')
-        );
-    }
-}
-new App(); */
 
-export class App extends React.Component {
-    constructor(props) {
-        super(props)
+export class App {
+    constructor() {
         this.init();
     }
     init() {
@@ -36,3 +19,4 @@ export class App extends React.Component {
         );
     }
 }
+new App();

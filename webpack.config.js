@@ -8,7 +8,7 @@ module.exports = {
     main: [
       'react-hot-loader/patch',
       './build/dev-client',
-      "./src/index.jsx"
+      "./src/index.tsx"
     ]
   },
   output: {
@@ -18,7 +18,7 @@ module.exports = {
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.js', '.jsx', '.json', ".webpack.js", ".web.js", ".ts", ".tsx"]
   },
   module: {
     rules: [
