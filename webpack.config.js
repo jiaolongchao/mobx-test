@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath:'/'  //hot reloading 会在嵌套的路由有效
+    publicPath:'http:localhost/'  //hot reloading 会在嵌套的路由有效
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
