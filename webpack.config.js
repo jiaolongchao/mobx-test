@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   //mode: 'development',
@@ -13,8 +15,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
-    publicPath:'http:localhost/'  //hot reloading 会在嵌套的路由有效
+    filename: 'js/[name]-[hash].js',
+    //publicPath:'http://localhost/'  //hot reloading 会在嵌套的路由有效
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
@@ -49,8 +51,16 @@ module.exports = {
     "react-dom": "ReactDOM"
   }, */
   // Enable sourcemaps for debugging webpack's output.
-  devtool: 'source-map',
-  plugins: [   
-    new webpack.HotModuleReplacementPlugin()
+  devtool: 'source-map', 
+  plugins: [    
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({     
+      template: 'index.html', //指向根目录的html context运行环境的上下文就是根目录
+      filename: 'index.html',
+      inject: true
+    }),
+    new FriendlyErrorsPlugin()
   ]
 }

@@ -11,7 +11,7 @@ const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('../webpack.config');
 
 // 端口设置
-const port = 80;
+const port = 8081;
 // 是否自动打开浏览器
 const autoOpenBrowser = true;
 // 创建http代理
